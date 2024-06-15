@@ -1,13 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>movie search | Home</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IMDB - Api Movie Search</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <section>
+      <div id="wrapper">
+        <div id="searchBox">
+          <input type="text" placeholder="Enter Your Movie Name" id="input" />
+          <button type="submit" id="btn">Search</button>
+        </div>
+        <div id="imgWrapper">
+          <div id="imgBox">
+            <img id="img" src="/imgs/cover.jpg" alt="boy" />
+            <img id="img" src="/imgs/cover.jpg" alt="boy" />
+            <img id="img" src="/imgs/cover.jpg" alt="boy" />
+            <img id="img" src="/imgs/cover.jpg" alt="boy" />
+            <div>
+              <h3>Title: <span id="nameIn">Mob Psycho 100</span></h3>
+              <h5>
+                Ratting: <span style="color: orange">★</span>
+                <span id="rattingIn">9.2</span>/10
+              </h5>
+              <h5>
+                Rank:
+                <span id="rankIn">938</span>
+              </h5>
+
+              <h5>
+                Release Date:
+                <span id="releaseDate" style="font-weight: 500">2019</span>
+              </h5>
+              <h5>
+                Length:
+                <span id="movieLength" style="font-weight: 500">190</span> min
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script src="main.js"></script>
   </body>
 </html>
