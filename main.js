@@ -1,35 +1,72 @@
 const img = document.getElementById('img');
 const imgBox = document.getElementById('imgBox');
+const nameIn = document.getElementById('nameIn');
 
-const url = 'https://imdb8.p.rapidapi.com/auto-complete?q=Game-Show';
-const options = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': '9637a21df4msh0b179de3a323c03p18202cjsn81ac897b05dd',
-    'X-RapidAPI-Host': 'imdb8.p.rapidapi.com',
-  },
-};
+const btn = document.getElementById('btn');
+const input = document.getElementById('input');
 
-async function temp() {
-  try {
-    const response = await fetch(url, options);
-    const result = await response.json();
-    const list = result.d;
+// let searchResult;
+// setInterval(() => {
+//   searchResult = input.value;
+// }, 1);
 
-    list.map((item) => {
-      const name = item.l;
-      const poster = item.i.imageUrl;
-      // img.forEach((e) => {
-      //   e.src += poster;
-      //   console.log(poster);
-      // });
-      const moviePic = `<img src="${poster}"></img>`;
-      imgBox.innerHTML += moviePic;
-      console.log(poster);
-    });
-  } catch (error) {
-    console.log(error);
+btn.onclick = btnFun;
+
+function btnFun() {
+  imgBox.innerHTML = '';
+
+  const url = `https://imdb8.p.rapidapi.com/auto-complete?q=${input.value}`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '9637a21df4msh0b179de3a323c03p18202cjsn81ac897b05dd',
+      'X-RapidAPI-Host': 'imdb8.p.rapidapi.com',
+    },
+  };
+
+  async function temp() {
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      const list = result.d;
+
+      list.map((item) => {
+        const name = item.l;
+        const rank = item.rank;
+        const year = item.y;
+        // const ratting = item.ratting;
+        const poster = item.i.imageUrl;
+
+        const moviePic =
+          `<img id="img" src="${poster}" alt="boy" />
+            <div id="text-wrap">
+              <h3><span id="nameIn">${name}</span></h3>
+              <h5>
+                Ratting: <span style="color: orange">★</span>
+                <span id="rattingIn">9.2</span>/10
+              </h5>
+              <h5>
+                Rank:
+                <span id="rankIn">${rank}</span>
+              </h5>
+
+              <h5>
+                Release Date:
+                <span id="releaseDate" style="font-weight: 500">${year}</span>
+              </h5>
+              <h5>
+                Length:
+                <span id="movieLength" style="font-weight: 500">190</span> min
+              </h5>
+            </div>` + '\n';
+        imgBox.innerHTML += moviePic;
+        // console.log(poster);
+        console.log(item);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
+  console.log('ok');
+  temp();
 }
-
-temp();
