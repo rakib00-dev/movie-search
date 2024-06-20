@@ -54,19 +54,19 @@ function btnFun() {
                 Release Date:
                 <span id="releaseDate" style="font-weight: 500">${year}</span>
               </h5>
-              <h5>
-                Length:
-                <span id="movieLength" style="font-weight: 500">190</span> min
-              </h5>
+              
             </div>` + '\n';
         imgBox.innerHTML += moviePic;
-        // console.log(poster);
+        console.log(poster);
         console.log(item);
       });
     } catch (error) {
       console.log(error);
+      imgBox.innerHTML = '<h5 style="margin:auto">NO RESULT FOUND</h5>';
     }
   }
   console.log('ok');
   temp();
 }
+
+function btnFun2() {}

@@ -9,6 +9,7 @@ body {
   font-size: 16px;
   margin: 20px;
   place-items: center;
+  padding: 39px;
 }
 
 #searchBox {
@@ -92,9 +93,43 @@ h5 {
   font-size: 17px;
 }
 
+@media (max-width: 600px) {
+  body {
+    display: flex;
+  }
+}
+
+@media (max-width: 504px) {
+  #wrapper {
+    display: block;
+  }
+  #searchBox {
+    width: 100%;
+  }
+  #imgWrapper {
+    width: 100%;
+  }
+  #imgBox img {
+    position: relative;
+    /* height: 202px; */
+    width: 144px;
+    border-radius: 4px;
+    float: left;
+    right: 0;
+  }
+
+  #imgBox #text-wrap {
+    float: right;
+    width: 100%;
+    position: relative;
+    left: 0;
+    top: 28px;
+  }
+}
+
 @media (max-width: 500px) {
   #imgBox img {
-    width: 70px;
+    width: 120px;
   }
   #imgBox {
     display: flex;
