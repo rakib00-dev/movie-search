@@ -5,11 +5,6 @@ const nameIn = document.getElementById('nameIn');
 const btn = document.getElementById('btn');
 const input = document.getElementById('input');
 
-// let searchResult;
-// setInterval(() => {
-//   searchResult = input.value;
-// }, 1);
-
 btn.onclick = btnFun;
 
 function btnFun() {
@@ -34,7 +29,6 @@ function btnFun() {
         const name = item.l;
         const rank = item.rank;
         const year = item.y;
-        // const ratting = item.ratting;
         const poster = item.i.imageUrl;
 
         const moviePic =
@@ -68,5 +62,3 @@ function btnFun() {
   console.log('ok');
   temp();
 }
-
-function btnFun2() {}
